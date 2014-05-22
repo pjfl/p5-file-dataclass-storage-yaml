@@ -1,8 +1,8 @@
-# @(#)Ident: 07podspelling.t 2013-12-06 14:40 pjf ;
+# @(#)Ident: 07podspelling.t 2014-05-22 22:24 pjf ;
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 1 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 2 $ =~ /\d+/gmx );
 use File::Spec::Functions   qw( catdir catfile updir );
 use FindBin                 qw( $Bin );
 use lib                 catdir( $Bin, updir, 'lib' );
@@ -44,3 +44,4 @@ __DATA__
 peter
 flanigan
 File::DataClass::Storage::YAML
+YAML

@@ -2,13 +2,42 @@ package File::DataClass::Storage::YAML;
 
 use 5.01;
 use namespace::sweep;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 1 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 2 $ =~ /\d+/gmx );
 
 use Moo;
-use Class::Usul::Constants;
-use Class::Usul::Functions  qw( throw );
+use MooX::Augment -class;
+use File::DataClass::Functions qw( extension_map );
+use File::DataClass::Types     qw( Int );
+use YAML::Tiny;
 
-extends q(Class::Usul::Programs);
+extends q(File::DataClass::Storage);
+
+has '+extn'  => default => '.yml';
+
+has 'stream' => is => 'ro', isa => Int, default => 0;
+
+# Construction
+extension_map 'YAML' => [ '.yml', '.yaml' ];
+
+augment '_read_file' => sub {
+   my ($self, $rdr) = @_; my $yt = YAML::Tiny->new;
+
+   $self->encoding and $rdr->encoding( $self->encoding );
+
+   return $yt->read_string( $rdr->all )->[ $self->stream ];
+};
+
+augment '_write_file' => sub {
+   my ($self, $wtr, $data) = @_; my $yt = YAML::Tiny->new;
+
+   $self->encoding and $wtr->encoding( $self->encoding );
+
+   my $content = $wtr->exists ? $yt->read_string( $wtr->all ) : $yt;
+
+   $content->[ $self->stream ] = $data; $wtr->print( $content->write_string );
+
+   return $data;
+};
 
 1;
 
@@ -20,14 +49,19 @@ __END__
 
 =head1 Name
 
-File::DataClass::Storage::YAML - One-line description of the modules purpose
+File::DataClass::Storage::YAML - Read/write data YAML storage model
 
 =head1 Synopsis
 
-   use File::DataClass::Storage::YAML;
-   # Brief but working code examples
+   use Moo;
+
+   extends 'File::DataClass::Schema';
+
+   has '+storage_class' => default => 'YAML';
 
 =head1 Description
+
+Uses L<YAML::Tiny> to read and write YAML files
 
 =head1 Configuration and Environment
 
@@ -35,17 +69,31 @@ Defines the following attributes;
 
 =over 3
 
+=item C<extn>
+
+The default extension, F<.yml>
+
+=item C<stream>
+
+The YAML document number. Defaults to zero
+
 =back
 
 =head1 Subroutines/Methods
 
+None
+
 =head1 Diagnostics
+
+None
 
 =head1 Dependencies
 
 =over 3
 
-=item L<Class::Usul>
+=item L<File::DataClass::Storage>
+
+=item L<YAML::Tiny>
 
 =back
 

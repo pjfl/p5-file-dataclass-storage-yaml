@@ -1,5 +1,7 @@
 Revision history for File::DataClass::Storage::YAML
 
+          - Passes tests
+
 0.1.1     2014-05-22 12:24:47
           - Added project files to master branch
 
