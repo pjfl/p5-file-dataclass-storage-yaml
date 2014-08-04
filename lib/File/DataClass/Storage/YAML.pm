@@ -1,8 +1,8 @@
 package File::DataClass::Storage::YAML;
 
 use 5.01;
-use namespace::sweep;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 3 $ =~ /\d+/gmx );
+use namespace::autoclean;
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 4 $ =~ /\d+/gmx );
 
 use Moo;
 use MooX::Augment -class;
