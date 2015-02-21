@@ -2,10 +2,9 @@ package File::DataClass::Storage::YAML;
 
 use 5.01;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 4 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 5 $ =~ /\d+/gmx );
 
 use Moo;
-use MooX::Augment -class;
 use File::DataClass::Functions qw( extension_map );
 use File::DataClass::Types     qw( Int );
 use YAML::Tiny;
@@ -19,15 +18,15 @@ has 'stream' => is => 'ro', isa => Int, default => 0;
 # Construction
 extension_map 'YAML' => [ '.yml', '.yaml' ];
 
-augment '_read_file' => sub {
+sub read_from_file {
    my ($self, $rdr) = @_; my $yt = YAML::Tiny->new;
 
    $self->encoding and $rdr->encoding( $self->encoding );
 
    return $yt->read_string( $rdr->all )->[ $self->stream ];
-};
+}
 
-augment '_write_file' => sub {
+sub write_to_file {
    my ($self, $wtr, $data) = @_; my $yt = YAML::Tiny->new;
 
    $self->encoding and $wtr->encoding( $self->encoding );
@@ -37,7 +36,7 @@ augment '_write_file' => sub {
    $content->[ $self->stream ] = $data; $wtr->print( $content->write_string );
 
    return $data;
-};
+}
 
 1;
 
@@ -81,7 +80,9 @@ The YAML document number. Defaults to zero
 
 =head1 Subroutines/Methods
 
-None
+=head2 read_from_file
+
+=head2 write_to_file
 
 =head1 Diagnostics
 

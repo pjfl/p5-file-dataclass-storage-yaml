@@ -41,4 +41,5 @@ __DATA__
 peter
 flanigan
 File::DataClass::Storage::YAML
+merchantability
 YAML

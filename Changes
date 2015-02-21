@@ -1,5 +1,7 @@
 Revision history for File::DataClass::Storage::YAML
 
+          - Storage API methods now called read_from_file and write_to_file
+          - Dropped Class::Method::ModifiersX::Augment
           - Replaced namespace::sweep with autoclean
           - Passes tests
 
