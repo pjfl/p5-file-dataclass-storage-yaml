@@ -2,12 +2,12 @@ package File::DataClass::Storage::YAML;
 
 use 5.01;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 5 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 6 $ =~ /\d+/gmx );
 
-use Moo;
 use File::DataClass::Functions qw( extension_map );
 use File::DataClass::Types     qw( Int );
 use YAML::Tiny;
+use Moo;
 
 extends q(File::DataClass::Storage);
 
@@ -46,6 +46,14 @@ __END__
 
 =encoding utf-8
 
+=begin html
+
+<a href="https://travis-ci.org/pjfl/p5-file-dataclass-storage-yaml"><img src="https://travis-ci.org/pjfl/p5-file-dataclass-storage-yaml.svg?branch=master" alt="Travis CI Badge"></a>
+<a href="http://badge.fury.io/pl/File-DataClass-Storage-YAML"><img src="https://badge.fury.io/pl/File-DataClass-Storage-YAML.svg" alt="CPAN Badge"></a>
+<a href="http://cpants.cpanauthors.org/dist/File-DataClass-Storage-YAML"><img src="http://cpants.cpanauthors.org/dist/File-DataClass-Storage-YAML.png" alt="Kwalitee Badge"></a>
+
+=end html
+
 =head1 Name
 
 File::DataClass::Storage::YAML - Read/write data YAML storage model
@@ -82,7 +90,11 @@ The YAML document number. Defaults to zero
 
 =head2 read_from_file
 
+Returns a hash reference decoded from the files contents
+
 =head2 write_to_file
+
+Writes a hash reference to file in YAML format
 
 =head1 Diagnostics
 
@@ -92,7 +104,7 @@ None
 
 =over 3
 
-=item L<File::DataClass::Storage>
+=item L<File::DataClass>
 
 =item L<YAML::Tiny>
 
