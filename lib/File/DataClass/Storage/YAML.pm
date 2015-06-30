@@ -2,7 +2,7 @@ package File::DataClass::Storage::YAML;
 
 use 5.01;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 6 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 7 $ =~ /\d+/gmx );
 
 use File::DataClass::Functions qw( extension_map );
 use File::DataClass::Types     qw( Int );
@@ -45,14 +45,6 @@ __END__
 =pod
 
 =encoding utf-8
-
-=begin html
-
-<a href="https://travis-ci.org/pjfl/p5-file-dataclass-storage-yaml"><img src="https://travis-ci.org/pjfl/p5-file-dataclass-storage-yaml.svg?branch=master" alt="Travis CI Badge"></a>
-<a href="http://badge.fury.io/pl/File-DataClass-Storage-YAML"><img src="https://badge.fury.io/pl/File-DataClass-Storage-YAML.svg" alt="CPAN Badge"></a>
-<a href="http://cpants.cpanauthors.org/dist/File-DataClass-Storage-YAML"><img src="http://cpants.cpanauthors.org/dist/File-DataClass-Storage-YAML.png" alt="Kwalitee Badge"></a>
-
-=end html
 
 =head1 Name
 
