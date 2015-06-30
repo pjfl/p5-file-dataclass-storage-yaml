@@ -1,9 +1,3 @@
-<div>
-    <a href="https://travis-ci.org/pjfl/p5-file-dataclass-storage-yaml"><img src="https://travis-ci.org/pjfl/p5-file-dataclass-storage-yaml.svg?branch=master" alt="Travis CI Badge"></a>
-    <a href="http://badge.fury.io/pl/File-DataClass-Storage-YAML"><img src="https://badge.fury.io/pl/File-DataClass-Storage-YAML.svg" alt="CPAN Badge"></a>
-    <a href="http://cpants.cpanauthors.org/dist/File-DataClass-Storage-YAML"><img src="http://cpants.cpanauthors.org/dist/File-DataClass-Storage-YAML.png" alt="Kwalitee Badge"></a>
-</div>
-
 # Name
 
 File::DataClass::Storage::YAML - Read/write data YAML storage model

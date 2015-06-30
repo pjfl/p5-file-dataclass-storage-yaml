@@ -2,7 +2,7 @@ package File::DataClass::Storage::YAML;
 
 use 5.01;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 7 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 8 $ =~ /\d+/gmx );
 
 use File::DataClass::Functions qw( extension_map );
 use File::DataClass::Types     qw( Int );
