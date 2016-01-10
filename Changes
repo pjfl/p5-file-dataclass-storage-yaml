@@ -1,5 +1,6 @@
 Revision history for File::DataClass::Storage::YAML
 
+          - Toolchain update
           - Removed badges
           - Updated prereqs
           - Storage API methods now called read_from_file and write_to_file
